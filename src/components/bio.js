@@ -5,19 +5,19 @@
  * See: https://www.gatsbyjs.org/docs/static-query/
  */
 
-import React from "react"
-import { StaticQuery, graphql } from "gatsby"
-import Image from "gatsby-image"
-import styled from "styled-components"
+import React from "react";
+import { StaticQuery, graphql } from "gatsby";
+import Image from "gatsby-image";
+import styled from "styled-components";
 
-import { rhythm } from "../utils/typography"
+import { rhythm } from "../utils/typography";
 
 function Bio() {
   return (
     <StaticQuery
       query={bioQuery}
       render={data => {
-        const { author, social } = data.site.siteMetadata
+        const { author } = data.site.siteMetadata;
         return (
           <Container>
             <Image
@@ -27,30 +27,33 @@ function Bio() {
                 marginRight: rhythm(1 / 2),
                 marginBottom: 0,
                 minWidth: 50,
-                borderRadius: `100%`,
+                borderRadius: `100%`
               }}
               imgStyle={{
-                borderRadius: `50%`,
+                borderRadius: `50%`
               }}
             />
             <p>
-              Written by <strong>{author}</strong> who lives and works in San
-              Francisco building useful things.
+              Written by{" "}
+              <a href={`https://icaro.io`}>
+                <strong>{author}</strong>
+              </a>{" "}
+              who loves to express himself using emojis 🤓. When I'm not{" "}
+              <a href={`https://github.com/icaroharry`}>coding</a> or writing
+              blog posts, you can find me riding my fixed-gear bike in Belo
+              Horizonte 🚴‍♂️.
               {` `}
-              <a href={`https://twitter.com/${social.twitter}`}>
-                You should follow him on Twitter
-              </a>
             </p>
           </Container>
-        )
+        );
       }}
     />
-  )
+  );
 }
 
 const bioQuery = graphql`
   query BioQuery {
-    avatar: file(absolutePath: { regex: "/profile-pic.jpg/" }) {
+    avatar: file(absolutePath: { regex: "/profile-pic.jpeg/" }) {
       childImageSharp {
         fixed(width: 50, height: 50) {
           ...GatsbyImageSharpFixed
@@ -60,16 +63,14 @@ const bioQuery = graphql`
     site {
       siteMetadata {
         author
-        social {
-          twitter
-        }
       }
     }
   }
-`
+`;
 
 const Container = styled.div`
   display: flex;
-`
+  font-size: 16px;
+`;
 
-export default Bio
+export default Bio;

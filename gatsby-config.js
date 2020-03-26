@@ -1,10 +1,10 @@
 module.exports = {
   siteMetadata: {
     // edit below
-    title: `icaro.io blog`,
+    title: 'import { blog } from "icaro.io"',
     author: `Ícaro Harry`,
     description: ``,
-    siteUrl: `https://blog-icaro-io.netlify.com/`,
+    siteUrl: `https://icaro.netlify.com/`,
     social: {
       twitter: `icaroharry`
     }
@@ -73,7 +73,7 @@ module.exports = {
         name: `Gatsby Starter Blog`,
         short_name: `GatsbyJS`,
         start_url: `/`,
-        background_color: `#ffffff`,
+        background_color: `#303030`,
         theme_color: `#663399`,
         display: `minimal-ui`,
         // edit below
